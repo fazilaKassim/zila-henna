@@ -51,19 +51,22 @@
           <nav role="navigation" :class="isActive && 'is-active'">
             <ul class="nav-links">
               <li><router-link to="/">Accueil</router-link></li>
-              <li><router-link to="/boutique">Boutique</router-link>
-              <ul class="sous-menu"><li>
-                <router-link ><img src="../assets/img/cone.jpeg" alt=""></router-link>
+              <li><router-link to="/boutique">Boutique
+              </router-link>
+              <!-- <ul class="sous-menu"><li>
+                <router-link to="/" ><img src="../assets/img/cone.jpeg" alt="">Henné naturel</router-link>
               </li>
               <li>
-                <router-link><img src="../assets/img/cadre.jpg" alt=""></router-link>
+                <router-link to="/"><img src="../assets/img/cadre.jpg" alt="">Cadre Personnalisé</router-link>
               </li>
               <li>
-                <router-link><img src="../assets/img/bougie.jpeg" alt=""></router-link>
+                <router-link to="/"><img src="../assets/img/bougie.jpeg" alt="">Bougie Personnalisé</router-link>
               </li>
               <li>
-                <router-link><img src="../assets/img/bouquet.jpg" alt=""></router-link>
-              </li>  </ul></li>
+                <router-link to="/"><img src="../assets/img/bouquet.jpg" alt="">Bouquet</router-link>
+              </li>  </ul> -->
+
+              </li>
               <li><router-link to="/galerie">Galerie</router-link></li>
               <li><router-link to="/tarifs">Tarifs</router-link></li>
               <li><router-link to="/rendezVous">Rendez-vous</router-link></li>
@@ -273,19 +276,6 @@ ul.nav-links a:hover {
  }
 
 
-//sous menu boutique
-.sous-menu {
-  display: none;
-  background: black;
-  color: white;
-  
-}
-nav > ul li:hover .sous-menu{
-  display: flex;
-flex-direction: row;
-
-}
- 
 
 
  //navbar

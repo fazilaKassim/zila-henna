@@ -58,10 +58,16 @@ article figure img {
 
     height: 250px;
     width: 250px;
-    margin:5px
+    margin:5px;
+    border: thick double rgb(200, 156, 98);
+    transition: transform .2s;
 
 }
 
+article figure img:hover {
+
+  transform: scale(1.2); 
+}
     #myBtn {
         position: fixed;
         bottom: 200px;
