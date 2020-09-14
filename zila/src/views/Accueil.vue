@@ -1,5 +1,3 @@
-
-
 <template>
   <section id="accueil">
     <div id="slide">
@@ -15,7 +13,8 @@
           class="slide"
           src="../assets/img/slide3.jpg"/><img
           class="slide"
-          src="../assets/img/slide4.jpg"/></agile>
+          src="../assets/img/slide4.jpg"
+      /></agile>
     </div>
     <div id="accueil-baground">
       <div id="content-accueil">
@@ -112,7 +111,8 @@
 
         <section id="newsletter">
           <article class="newsletter">
-            <h3>Sign Up For Our Newsletter <br>
+            <h3>
+              Sign Up For Our Newsletter <br />
               Be the first to learn about our latest trends and get exclusive
               offers
             </h3>
@@ -134,22 +134,23 @@
 </template>
 
 <script>
-
 app = new Vue({
   el: "#app",
   components: {
     agile: VueAgile,
   },
 });
-
 </script>
 
 <style lang="scss">
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
 
+:root {
+  --gld: rgb(200, 156, 98);
 }
 body {
   overflow-x: hidden;
@@ -262,7 +263,6 @@ video {
 #boutique {
   background: black;
   width: 100%;
-
 }
 ul.menu {
   display: flex;
@@ -275,12 +275,11 @@ ul.menu {
 li.menu {
   list-style: none;
 
-// width: 20%;
+  // width: 20%;
   /* margin-top: 0px; */
   height: auto;
   // border-radius: 50%;
   margin: 50px 0 20px 0;
-
 }
 .menu a {
   text-decoration: none;
@@ -291,14 +290,12 @@ li.menu {
   cursor: pointer;
   display: flex;
   flex-direction: column;
- 
+
   align-items: center;
 }
 figcaption {
   text-align: center;
   padding: 30px;
-
-  
 }
 img.menu {
   width: 200px;
@@ -380,10 +377,9 @@ article.subcribe {
 }
 
 ul.livraisons {
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .livraisons li {
   list-style: none;
@@ -398,15 +394,14 @@ flex-wrap: wrap;
   text-align: center;
 }
 
-ul.livraisons li figure{
-      display: flex;
-    flex-direction: column;
-    width: 200px;
-    justify-content: center;
-    align-items: center;
+ul.livraisons li figure {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
 }
 
- @media screen and( max-width: 679px ){
- 
- }
+@media screen and( max-width: 679px ) {
+}
 </style>
