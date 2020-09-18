@@ -58,7 +58,7 @@
         <div id="fb-root"></div>
 
         <section id="avis">
-          <Rating />
+ 
         </section>
 
         <section id="propos">
@@ -158,6 +158,7 @@ body {
   min-width: 480px;
   max-width: 100%;
 }
+
 .row {
   margin: 0;
   padding: 0;

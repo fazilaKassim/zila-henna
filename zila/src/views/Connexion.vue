@@ -8,9 +8,10 @@
       <input
         class="input input-connection"
         type="email"
-        name="email"
+  autocomplete="email"
         placeholder="Email"
-        v-model="email"
+      aria-describedby="emailHelp"
+          v-model="user.email"
         required
       />
 
@@ -20,55 +21,53 @@
         id="input-password"
         class="input input-connection"
         type="password"
-        name="password"
+      autocomplete="password"
         placeholder="Mot de passe"
-        v-model="password"
+       v-model="user.password"
         required
       />
       <span id="icon-toggle">
         <i class="is-clickable fas fa-eye"></i>
       </span>
 
-      <button class="btn">ok</button>
+      <button @click.prevent="signin()" type="submit" class="btn">ok</button>
+      <hr />
+    <p class="linkInscription">
+      Vous n'avez pas encore de compte ? 
+      <router-link to="/inscription" class="lienInscription">Inscrivez-vous</router-link>
+    </p>
     </form>
   </div>
 </template>
 
 <script>
-// export default {
-//   name: "connexion",
-//   data(){
-//     return{
+import axios from "axios";
+export default {
+  data() {
+    return {
+      user: {
+        email: "",
+        password: "",
+      },
+    };
+  },
 
-//     }
-
-//     },
-//     methods:{
-//       async connexion(){
-//         await handler.post({
-//           email: this.email,
-//           password: this.password
-//         })
-//       }
-//     }
-  // }
-//   const iconWrapp = document.getElementById("icon-toggle");
-
-// if (iconWrapp !== null) {
-//     const input = document.getElementById("input-password");
-//     const icon = iconWrapp.querySelector(".fas");
-//     iconWrapp.onclick = (e) => {
-//         icon.classList.toggle("fa-eye-slash");
-//         icon.classList.toggle("fa-eye");
-    
-//         if (icon.classList.contains("fa-eye-slash")) {
-//             input.type = "text";
-//         } else {
-//             input.type = "password";
-//         }
-//     };
-// }
-// };
+  methods: {
+    signin() {
+      this.$store
+        .dispatch("user/signin", {
+          email: this.user.email,
+          password: this.user.password
+        })
+        .then(() => {
+          this.$router.push("/galerie");
+        })
+        .catch(err => {
+          console.log(err.message);
+        });
+    }
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -178,5 +177,18 @@ label {
       margin: 15px;
       outline: 0;
     }
+    hr{
+      margin-top: 50px;
+    }
+  
+  .linkInscription {
+    padding: 50px;
+  }
 
+.lienInscription{
+  color: var(--gld);
+}
+.lienInscription:hover{
+  color: rgb(167, 122, 10);
+}
 </style>

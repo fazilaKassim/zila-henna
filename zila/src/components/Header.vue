@@ -48,7 +48,7 @@
         <!--trait de separation entre la navbar et le logo  -->
         <div class="navbar">
           <!--navigation bar  -->
-          <nav role="navigation" :class="isActive && 'is-active'">
+          <nav role="navigation" >
             <ul class="nav-links">
               <li><router-link to="/">Accueil</router-link></li>
               <li><router-link to="/boutique">Boutique

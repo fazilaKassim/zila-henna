@@ -2,16 +2,22 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import VueAgile from 'vue-agile'
+import store from "./store";
+// import "./axios.config";
 
- 
 Vue.use(VueAgile)
 Vue.prototype.$ebus = new Vue();
 
 
+
+
+// event bus ($ebus) : https://www.digitalocean.com/community/tutorials/vuejs-global-event-bus
+Vue.prototype.$ebus = new Vue(); // rendre dispo des evt a tout les component
+
+Vue.config.productionTip = false;
+
 new Vue({
   router,
-  render: function(h) {
-    return h(App);
-  }
+  store,
+  render: h => h(App)
 }).$mount("#app");
-

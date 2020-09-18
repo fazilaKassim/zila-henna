@@ -6,7 +6,6 @@
               <article class="menu"><a href=""><figure><img class="img-menu"  src="../assets/img/cadre.jpg" alt=""><figcaption>Objets personnalisé</figcaption></figure></a></article>
               <article class="menu"><a href=""><figure><img  class="img-menu" src="../assets/img/cadre.jpg" alt=""><figcaption>Lettre fleurie</figcaption></figure></a></article>
               <article class="menu"><a href=""><figure><img class="img-menu"  src="../assets/img/bouquet.jpg" alt=""><figcaption>Bouquet</figcaption></figure></a></article>
-            
          </section>
     
   
@@ -18,12 +17,19 @@
 
 </article>
          </section>
+                <HenneBoutique />
     
   </div>
 </template>
 
 <script>
-export default {};
+import HenneBoutique from "../components/HenneBoutique"
+
+export default {
+  components : {
+   HenneBoutique
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -46,6 +52,13 @@ export default {};
      background: white;
      margin: auto;
      padding: 10px;
+}
+.boutique-menu{
+     width: 90%;
+     // height: 100vh;
+     background: white;
+     margin: auto;
+     padding: 20px 10px 0 10px;
 }
 section.sous-menu{
      // width: 80%;
@@ -76,19 +89,21 @@ figure img{
      border-radius: 80px 0 80px 0;
      cursor: pointer;
     filter: brightness(65%);
-    border:  double   goldenrod;
+    border:  double thick  rgb(247, 192, 120);
      
 }
 figcaption{color: white;
 font-size: 14px;
 width: 100%;
 text-align: center;
-position: absolute;
+position: relative;
 font-weight: 800;
 z-index: 10;
-bottom: 94px;
+bottom: 129px;
+height: 0;
 font-family:  "Bellota", cursive;
 font-size: 18px;
+text-shadow: #FC0 2px 0 10px;;
 }
 
 

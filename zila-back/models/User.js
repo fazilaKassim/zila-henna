@@ -1,7 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema; //fonction schéma
 
+
+
+//schema de donnée avec tout les infos 
 const UserSchema = Schema({
   products: [
     {
@@ -9,17 +12,23 @@ const UserSchema = Schema({
       ref: "Product",
     },
   ],
-  Nom: String,
-  Email: String,
-  MotDePasse: String,
-  Adress: {
-    CodePostal: Number,
-    Ville: String,
+  nom: String,
+  prenom: String,
+  email: String,
+  telephone: Number,
+password: String,
+  confirmationmdp: String,
+  dateDeNaissance: Date,
+  coordonnees: {
+    adresse:String,
+    complementAdress:String,
+    codePostal: Number,
+    ville: String,
   },
-  DateDeNaissance: Date,
-  Telephone: Number,
+
+ 
 });
 
-const UserModel = mongoose.model("User", UserSchema);
+const UserModel = mongoose.model("User", UserSchema);  //nom du model + nom du schema
 
-module.exports = UserModel;
+module.exports = UserModel;//export du model 

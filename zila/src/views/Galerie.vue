@@ -2,7 +2,9 @@
   <div id="galerie-bakcground">
     <section id="galerie">
       <h1>GALERIE</h1>
+      
       <article class="images" id="galerie-1">
+        
         <figure class="img-galerie">
           <img src="../assets/img/henne/1.jpg" alt="" />
         </figure>
@@ -40,7 +42,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  
+};
 </script>
 
 <style lang="scss">

@@ -5,8 +5,11 @@ import Boutique from "../views/Boutique.vue";
 import Galerie from "../views/Galerie.vue";
 import Tarifs from "../views/Tarifs.vue";
 import RendezVous from "../views/RendezVous.vue";
-import Connexion from "../views/Connexion.vue"
-import Inscription from "../views/Inscription.vue"
+import Connexion from "../views/Connexion.vue";
+import Inscription from "../views/Inscription.vue";
+import MentionLegal from "../views/MentionLegal.vue";
+import Condition from "../views/Condition.vue"
+import NotFound from "../views/NotFound.vue"
 
 Vue.use(VueRouter);
 
@@ -51,6 +54,21 @@ const routes = [
     name: "Inscription",
     component: Inscription,
   },
+  {
+    path: "/mentionlegal",
+    name: "MentionLegal",
+    component: MentionLegal,
+  },
+  {
+    path: "/condition",
+    name: "Condition",
+    component: Condition,
+  },
+  {
+    path: "*",
+    name: "404",
+    component: NotFound
+  }
 ];
 
 const router = new VueRouter({

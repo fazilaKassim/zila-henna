@@ -6,10 +6,11 @@
       </article>
       <article class="footer footer-info">
         <h2 class="footer-titre">INFORMATION</h2>
-        <router-link to="#">Contact</router-link>
-        <router-link to="#">Condition d'utilisation</router-link>
-        <router-link to="#">Mention légales</router-link>
-        <router-link to="#">A propos</router-link>
+        
+        <router-link to="/condition">Condition d'utilisation</router-link>
+       <router-link to="/mentionlegal">Mention légales</router-link>
+        <a href="https://zilahenneabout.wordpress.com/nos-produits/">Nos produits</a>
+        <router-link to="https://zilahenneabout.wordpress.com/about/">L'histoire du henné</router-link>
       </article>
       <article class="footer footer-menu">
         <h2 class="footer-titre">PLAN DU SITE </h2>
@@ -35,7 +36,7 @@ export default {};
 footer {
 
   width: 100%;
-  height: 20vh;
+  height: auto;
  
 }
 #footer {
@@ -46,13 +47,13 @@ footer {
   grid-template-rows: 1fr;
   grid-column-gap: 50px;
   grid-row-gap: 0px;
-
    
 }
 h2{
     color:rgb(200, 156, 98) ;
     font-size: 18px;
      font-family: "Bellota", cursive;
+  margin: 15px;
      
 
 }
