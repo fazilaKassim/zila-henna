@@ -22,7 +22,7 @@
           <h2>Menu Boutique</h2>
           <ul class="menu">
             <li class="menu">
-              <a href="">
+              <a href="/cone">
                 <figure>
                   <img src="../assets/img/cone.jpeg" alt="" class="menu" />
                   <figcaption>Cone</figcaption>
@@ -30,23 +30,23 @@
               </a>
             </li>
             <li class="menu">
-              <a href="">
+              <a href="/objets">
                 <figure>
                   <img src="../assets/img/cadre.jpg" alt="" class="menu" />
-                  <figcaption>Cadre</figcaption>
+                  <figcaption>Objets personnalisé</figcaption>
                 </figure>
               </a>
             </li>
             <li class="menu">
-              <a href="">
+              <a href="/Lettre">
                 <figure>
                   <img src="../assets/img/bougie.jpeg" alt="" class="menu" />
-                  <figcaption>Bougie</figcaption>
+                  <figcaption>Lettre Fleurie</figcaption>
                 </figure>
               </a>
             </li>
             <li class="menu">
-              <a href="">
+              <a href="/bouquet">
                 <figure>
                   <img src="../assets/img/bouquet.jpg" alt="" class="menu" />
                   <figcaption>Bouquet</figcaption>
@@ -134,12 +134,13 @@
 </template>
 
 <script>
-app = new Vue({
-  el: "#app",
+import { VueAgile } from 'vue-agile'
+
+export default {
   components: {
     agile: VueAgile,
   },
-});
+}
 </script>
 
 <style lang="scss">
@@ -280,7 +281,7 @@ li.menu {
   /* margin-top: 0px; */
   height: auto;
   // border-radius: 50%;
-  margin: 50px 0 20px 0;
+  margin: 50px 20px 20px 20px;
 }
 .menu a {
   text-decoration: none;

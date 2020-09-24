@@ -9,10 +9,12 @@ const RdvSchema = Schema({
       ref: "user",
     },
   ],
+  Prenom: String,
+  From: String,
+  Telephone: Number,
   Sujet: String,
+  Personne: Number,
   Date: Date,
-  Occasion: String,
-  NombreDePerson: Number,
   Message: String,
 });
 

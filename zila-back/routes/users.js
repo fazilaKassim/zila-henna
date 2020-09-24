@@ -32,7 +32,18 @@ router.post('/inscription', async (req, res, next) => {
   }
   
 });
+router.get("/get-user-by-token", (req, res) => {
+  try {
+    console.log("HEADER AUTHENCICATE",req.header("x-authenticate"))
+    const user = auth.decodeToken(req.header("x-authenticate"));
 
+    const userId = user.infos._id;
+    // console.log("should be user", user);
+    res.redirect("/users/" + userId);
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
+});
 router.post("/connexion", async (req, res, next) => {
   const userInfos = req.body; //
   // check que mail et mdp sont renseignés
@@ -112,6 +123,15 @@ router.delete("/:id", async (req, res, next) => {
   try {
     const deleteUser = await UserModel.findByIdAndDelete(req.params.id); // req.params.id correspond à l'id passé en URL
     res.json(deleteUser);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get("/:id", async (req, res, next) => {
+  try {
+    const user = await UserModel.findById(req.params.id);
+    res.json(user);
   } catch (err) {
     next(err);
   }

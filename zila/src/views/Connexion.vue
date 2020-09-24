@@ -46,8 +46,8 @@ export default {
   data() {
     return {
       user: {
-        email: "",
-        password: "",
+        email: "midou@mail.com",
+        password: "midou",
       },
     };
   },
@@ -60,7 +60,7 @@ export default {
           password: this.user.password
         })
         .then(() => {
-          this.$router.push("/galerie");
+          this.$router.push("/dashboard");
         })
         .catch(err => {
           console.log(err.message);

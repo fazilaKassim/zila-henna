@@ -8,9 +8,6 @@ import store from "./store";
 Vue.use(VueAgile)
 Vue.prototype.$ebus = new Vue();
 
-
-
-
 // event bus ($ebus) : https://www.digitalocean.com/community/tutorials/vuejs-global-event-bus
 Vue.prototype.$ebus = new Vue(); // rendre dispo des evt a tout les component
 

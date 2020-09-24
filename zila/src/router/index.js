@@ -8,8 +8,14 @@ import RendezVous from "../views/RendezVous.vue";
 import Connexion from "../views/Connexion.vue";
 import Inscription from "../views/Inscription.vue";
 import MentionLegal from "../views/MentionLegal.vue";
-import Condition from "../views/Condition.vue"
-import NotFound from "../views/NotFound.vue"
+import Condition from "../views/Condition.vue";
+import NotFound from "../views/NotFound.vue";
+import Cone from "../views/Cone.vue";
+import Objets from "../views/Objets.vue";
+import Lettre from "../views/Lettre.vue";
+import Bouquet from "../views/Bouquet.vue";
+import Dashboard from "../views/Dashboard.vue";
+import Commande from "../views/Commande.vue"
 
 Vue.use(VueRouter);
 
@@ -50,6 +56,29 @@ const routes = [
     component: Connexion,
   },
   {
+    path: "/cone",
+    name: "Cone",
+    component: Cone,
+  },
+  ,
+  {
+    path: "/objets",
+    name: "Objets",
+    component: Objets,
+  },
+  ,
+  {
+    path: "/lettre",
+    name: "Lettre",
+    component: Lettre,
+  },
+  ,
+  {
+    path: "/bouquet",
+    name: "Bouquet",
+    component: Bouquet,
+  },
+  {
     path: "/inscription",
     name: "Inscription",
     component: Inscription,
@@ -68,7 +97,19 @@ const routes = [
     path: "*",
     name: "404",
     component: NotFound
-  }
+  },
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    component: Dashboard
+  },
+  {
+    path: "/commande",
+    name: "Commande",
+    component: Commande
+  },
+  
+  
 ];
 
 const router = new VueRouter({

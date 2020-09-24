@@ -22,13 +22,17 @@ export default {
     const token = auth.getLocalAuthToken();
 
     if (token && !currentUser) {
+      // console.log("TOKEN OF LOCAL STORAGE : ", token)
       this.$store.dispatch("user/getUserByToken");
     }
   },
   components : {
     Footer,
     Header
-  }
+  },
+
+
+
 }
 </script>
 

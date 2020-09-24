@@ -29,13 +29,13 @@
         <label for="prenom" class="form__label">Prenom</label>
       </div>
 
-      <div class="form__group field">
+   <div class="form__group field">
         <input
-          type="input"
+          type="email"
           class="form__field"
           placeholder="Email"
           id="email"
-     
+      
           v-model="user.email"
           required
         />
@@ -124,6 +124,7 @@
       <div class="form__group field">
         <input
           type="number"
+            min="1"
           class="form__field"
           placeholder="Code postal"
 

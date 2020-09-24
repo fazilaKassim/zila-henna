@@ -567,7 +567,7 @@
 
                   <div class="sf-mdl-left-full">
                     <p>
-                      à partir de 100€
+                      à partir de 200€
                       <br />
                       <br />
                       -15% sur le total
@@ -581,7 +581,7 @@
 
                   <div class="sf-mdl-right-full">
                     <p>
-                      à partir de 100€
+                      à partir de 200€
                       <br />
                       <br />
                       -15% sur le total
@@ -603,6 +603,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {

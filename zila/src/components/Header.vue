@@ -25,13 +25,21 @@
           <!-- icon connexion et panier -->
           <ul class="icon two">
             <li>
-              <router-link to="Connexion">
+              <router-link  to="Connexion"> <!-- v-if="!isSignedIn" -->
                 <img
                   src="../assets/img/profillogo.png"
                   alt=""
                   class="icon flex-vertical"
               /></router-link>
-              <!-- icon connexion-->
+
+            <li>
+              <!-- <router-link  v-if="isSignedIn" to="/dashboard">
+                <img
+                  src="../assets/img/profillogo.png"
+                  alt=""
+                  class="icon flex-vertical"
+              /></router-link> -->
+              <!-- panier -->
             </li>
             <li>
               <router-link to="Inscription">
@@ -51,22 +59,7 @@
           <nav role="navigation" >
             <ul class="nav-links">
               <li><router-link to="/">Accueil</router-link></li>
-              <li><router-link to="/boutique">Boutique
-              </router-link>
-              <!-- <ul class="sous-menu"><li>
-                <router-link to="/" ><img src="../assets/img/cone.jpeg" alt="">Henné naturel</router-link>
-              </li>
-              <li>
-                <router-link to="/"><img src="../assets/img/cadre.jpg" alt="">Cadre Personnalisé</router-link>
-              </li>
-              <li>
-                <router-link to="/"><img src="../assets/img/bougie.jpeg" alt="">Bougie Personnalisé</router-link>
-              </li>
-              <li>
-                <router-link to="/"><img src="../assets/img/bouquet.jpg" alt="">Bouquet</router-link>
-              </li>  </ul> -->
-
-              </li>
+              <li><router-link to="/boutique">Boutique </router-link></li>
               <li><router-link to="/galerie">Galerie</router-link></li>
               <li><router-link to="/tarifs">Tarifs</router-link></li>
               <li><router-link to="/rendezVous">Rendez-vous</router-link></li>
@@ -94,21 +87,26 @@
 
 <script>
 import vue from "vue";
+import auth from "@/auth";
 import { Slide } from 'vue-burger-menu';
 // import IconBurger from "@/components/IconBurger"
 
 export default {
-  data() {
+    data() {
     return {
-      lala: "lolo",
+      auth,
+      isActive: false
     };
-    
   },
+//   computed: {
+//   isSignedIn() {
+//     return Boolean(this.$store.getters["user/current"]);
+//   },
 
-    components: {
-        Slide // Register your component
-    }
-
+  components: {
+      Slide // Register your component
+  }
+// }
 };
 </script>
 

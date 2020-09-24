@@ -63,6 +63,7 @@ article.footer-logo {
   grid-area: 1 / 1 / 2 / 2;
 }
 
+
 .footer-logo {
   width: 150px;
   margin: auto;
@@ -92,7 +93,9 @@ article.footer-rs {
   justify-content: center;
   align-items: center;
 }
-
+article.footer a{
+  color: white;
+}
 .rs-logo{
   width:60px;
  margin:10px;

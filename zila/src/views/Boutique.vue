@@ -1,11 +1,11 @@
 <template>
   <div id="boutique-bg">
     <section class="boutique boutique-menu">
-         <section class="sous-menu">
-              <article class="menu"><a href=""><figure> <img  class="img-menu"  src="../assets/img/cone.jpeg" alt=""><figcaption>Henné</figcaption></figure></a></article>
-              <article class="menu"><a href=""><figure><img class="img-menu"  src="../assets/img/cadre.jpg" alt=""><figcaption>Objets personnalisé</figcaption></figure></a></article>
-              <article class="menu"><a href=""><figure><img  class="img-menu" src="../assets/img/cadre.jpg" alt=""><figcaption>Lettre fleurie</figcaption></figure></a></article>
-              <article class="menu"><a href=""><figure><img class="img-menu"  src="../assets/img/bouquet.jpg" alt=""><figcaption>Bouquet</figcaption></figure></a></article>
+      <section class="sous-menu">
+              <article class="menu"><a href="/cone"><figure  class="menu"> <img  class="img-menu"  src="../assets/img/cone.jpeg" alt=""><figcaption class="menu">Henné</figcaption></figure></a></article>
+              <article class="menu"><a href="/objets"><figure class="menu"><img class="img-menu"  src="../assets/img/cadre.jpg" alt=""><figcaption class="menu">Objets personnalisé</figcaption></figure></a></article>
+              <article class="menu"><a href="/lettre"><figure class="menu"><img  class="img-menu" src="../assets/img/cadre.jpg" alt=""><figcaption class="menu">Lettre fleurie</figcaption></figure></a></article>
+              <article class="menu"><a href="/bouquet"><figure class="menu"><img class="img-menu"  src="../assets/img/bouquet.jpg" alt=""><figcaption class="menu">Bouquet</figcaption></figure></a></article>
          </section>
     
   
@@ -17,17 +17,16 @@
 
 </article>
          </section>
-                <HenneBoutique />
+            
     
   </div>
 </template>
 
 <script>
-import HenneBoutique from "../components/HenneBoutique"
 
 export default {
   components : {
-   HenneBoutique
+ 
   }
 }
 </script>

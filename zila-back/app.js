@@ -23,12 +23,17 @@ const produitRouter = require('./routes/Produit');
 const rdvRouter = require('./routes/RDV');
 
 const app = express();
-app.use(cors('*'))
+// CORS SETUP
+app.use(cors(["http://localhost:8888", "http://localhost:8080"]));
+// app.use(cors("*"));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
+
+// POST SETUP
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

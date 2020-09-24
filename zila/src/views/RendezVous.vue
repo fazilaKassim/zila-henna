@@ -1,47 +1,47 @@
 <template>
   <section id="rdv">
     
-    <form action="" method="post" class="form">
+    <form  class="form" @submit.prevent="sendMessage">
       <h1 class="title">PRENDRE RENDEZ-VOUS</h1>
     <p>Devis et RDV par email en remplissant le formulaire</p>
       <div class="form__group field">
-        <input type="input" class="form__field" placeholder="Nom" name="nom" id="nom" required />
+        <input type="input" class="form__field" placeholder="Nom" v-model="nom" id="nom" required />
         <label for="nom" class="form__label">Nom</label>
       </div>
 
      <div class="form__group field">
-        <input type="input" class="form__field" placeholder="Prenom" name="prenom" id="prenom" required />
+        <input type="input" class="form__field" placeholder="Prenom" v-model="prenom" id="prenom" required />
         <label for="prenom" class="form__label">Prenom</label>
       </div>
 
       <div class="form__group field">
-        <input type="input" class="form__field" placeholder="Email" name="email" id="email" required />
+        <input type="from" class="form__field" placeholder="Email" v-model="from" id="from" required />
         <label for="email" class="form__label">Email</label>
       </div>
 
       <div class="form__group field">
-        <input type="tel" class="form__field" placeholder="Telephone" name="telephone" id="telephone" required />
+        <input type="tel" class="form__field" placeholder="Telephone" v-model="telephone" id="telephone" required />
         <label for="telephone" class="form__label">Telephone</label>
       </div>
 
         <div class="form__group field">
-        <input type="input" class="form__field" placeholder="Occasion" name="occasion" id="occasion" required />
-        <label for="occasion" class="form__label">Occasion</label>
+        <input type="input" class="form__field" placeholder="sujet" v-model="sujet" id="sujet" required />
+        <label for="sujet" class="form__label">Sujet</label>
       </div>
 
         <div class="form__group field">
-        <input type="input" class="form__field" placeholder="Nombre de personne" name="personne" id="personne" required />
+        <input type="number"   min="1" class="form__field" placeholder="Nombre de personne" v-model="personne" id="personne" required />
         <label for="personne" class="form__label">Nombre de personne</label>
       </div>
 
         <div class="form__group field">
         <label for="date" class="form__label">Date souhiatée</label>
-        <input type="datetime-local" class="form__field" placeholder="Date souhaitée" name="date" id="date" value="2018-06-12T19:30" min="2020-08-07T00:00" max="2023-12-31T00:00">
+        <input type="datetime-local" class="form__field" placeholder="Date souhaitée" v-model="date" id="date" value="2018-06-12T19:30" min="2020-10-02T00:00" max="2023-12-31T00:00">
       </div>
 
      <div class="form__group field">
   
-        <textarea id="descrption" name="descrption" class="text-area-description  " placeholder="Message"></textarea>
+        <textarea id="descrption message" v-model="message" class="text-area-description  " placeholder="Message"></textarea>
       </div>
 <div class="btn-rdv">
     <button class="btn ">Prendre rendez-vous</button>
@@ -53,7 +53,40 @@
 </template>
 
 <script>
-  export default {};
+import { apiHandler } from "./../api/handler";
+const handler = apiHandler();
+
+
+export default {
+  name: "RendezVous",
+  data() {
+    return {
+      nom: "",
+      prenom: "",
+ from: "",
+      telephone: "",
+      sujet:"",
+      personne:"",
+      date:"",
+      message:"",
+
+    };
+  },
+  methods: {
+    async sendMessage() {
+      await handler.post("/rdv/rdv", {
+     nom: this.nom,
+      prenom: this.prenom,
+     email: this.email,
+      telephone: this.telephone,
+     sujet:this.sujet,
+      personne:this.personne,
+      date:this.date,
+      message:this.message,
+      });
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
