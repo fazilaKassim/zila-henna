@@ -2,7 +2,7 @@
   <header>
     <div id="head">
       <div class="grid-container">
-            <!-- <IconBurger /> -->
+        <!-- <IconBurger /> -->
         <div class="search">
           <input type="search" name="search" id="search" placeholder="search" />
           <!--input search -->
@@ -15,8 +15,8 @@
         </div>
 
         <div class="logo">
-          <router-link to="index.html" id="logo">
-          ZILA HENNE
+          <router-link to="/" id="logo">
+            ZILA HENNE
             <!-- <img src="../assets/img/logo.png"> -->
           </router-link>
         </div>
@@ -25,12 +25,14 @@
           <!-- icon connexion et panier -->
           <ul class="icon two">
             <li>
-              <router-link  to="Connexion"> <!-- v-if="!isSignedIn" -->
+              <router-link to="Connexion">
+                <!-- v-if="!isSignedIn" -->
                 <img
                   src="../assets/img/profillogo.png"
                   alt=""
                   class="icon flex-vertical"
               /></router-link>
+            </li>
 
             <li>
               <!-- <router-link  v-if="isSignedIn" to="/dashboard">
@@ -56,7 +58,7 @@
         <!--trait de separation entre la navbar et le logo  -->
         <div class="navbar">
           <!--navigation bar  -->
-          <nav role="navigation" >
+          <nav role="navigation">
             <ul class="nav-links">
               <li><router-link to="/">Accueil</router-link></li>
               <li><router-link to="/boutique">Boutique </router-link></li>
@@ -67,19 +69,16 @@
           </nav>
         </div>
 
-<!-- credit to mohit bajoria (npmjs.com)-->
-         <Slide id="menu-burger" noOverlay :closeOnNavigation="true" width="400">
-      
-            <ul class="nav-links">
-              <li><router-link to="/">Accueil</router-link></li>
-              <li><router-link to="/boutique">Boutique</router-link></li>
-              <li><router-link to="/galerie">Galerie</router-link></li>
-              <li><router-link to="/tarifs">Tarifs</router-link></li>
-              <li><router-link to="/rendezVous">Rendez-vous</router-link></li>
-            </ul>
-      
-    </Slide>
-
+        <!-- credit to mohit bajoria (npmjs.com)-->
+        <Slide id="menu-burger" noOverlay :closeOnNavigation="true" width="400">
+          <ul class="nav-links">
+            <li><router-link to="/">Accueil</router-link></li>
+            <li><router-link to="/boutique">Boutique</router-link></li>
+            <li><router-link to="/galerie">Galerie</router-link></li>
+            <li><router-link to="/tarifs">Tarifs</router-link></li>
+            <li><router-link to="/rendezVous">Rendez-vous</router-link></li>
+          </ul>
+        </Slide>
       </div>
     </div>
   </header>
@@ -88,37 +87,86 @@
 <script>
 import vue from "vue";
 import auth from "@/auth";
-import { Slide } from 'vue-burger-menu';
+import { Slide } from "vue-burger-menu";
 // import IconBurger from "@/components/IconBurger"
 
 export default {
-    data() {
+  // el: "#app",
+  data() {
     return {
+      // limitPosition: 500,
+      // scrolled: false,
+      // lastPosition: 0,
       auth,
-      isActive: false
+      isActive: false,
     };
   },
-//   computed: {
-//   isSignedIn() {
-//     return Boolean(this.$store.getters["user/current"]);
-//   },
+  //   computed: {
+  //   isSignedIn() {
+  //     return Boolean(this.$store.getters["user/current"]);
+  //   },
+  // methods: {
+  //   handleScroll() {
+  //     if (
+  //       this.lastPosition < window.scrollY &&
+  //       this.limitPosition < window.scrollY
+  //     ) {
+  //       this.scrolled = true;
+  //       // move up!
+  //     }
+
+  //     if (this.lastPosition > window.scrollY) {
+  //       this.scrolled = false;
+  //       // move down
+  //     }
+
+  //     this.lastPosition = window.scrollY;
+  //     // this.scrolled = window.scrollY > 250;
+  //   },
+  // },
+  // created() {
+  //   window.addEventListener("scroll", this.handleScroll);
+  // },
+  // destroyed() {
+  //   window.removeEventListener("scroll", this.handleScroll);
+  // },
 
   components: {
-      Slide // Register your component
-  }
-// }
+    Slide, // Register your component
+  },
+  // }
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 body {
   background: black;
 }
-
+#app {
+  // padding-top: 50vh;
+  // border: 10px solid black;
+  width: 100%;
+  height: 100vh;
+}
 header {
   width: 100%;
   margin-top: 10px;
   min-width: 500px;
+  position: sticky;
+  top: 1px;
+
+  z-index: 1000;
+  background: black;
+}
+.headroom {
+  will-change: transform;
+  transition: transform 200ms linear;
+}
+.headroom--pinned {
+  transform: translateY(0%);
+}
+.headroom--unpinned {
+  transform: translateY(-100%);
 }
 .flex-vertical {
   display: flex;
@@ -146,7 +194,6 @@ header {
 .search {
   padding-top: 20px;
   grid-area: 1 / 1 / 3 / 6;
-
 }
 #search {
   background-color: black;
@@ -156,7 +203,7 @@ header {
   border-left: inherit;
   border-right: inherit;
   outline: 0;
-    min-width:60px;
+  min-width: 60px;
   max-width: 150px;
   color: white;
 }
@@ -175,9 +222,7 @@ header {
   grid-area: 1 / 2 / 2 / 3;
   width: 100%;
   text-align: center;
-
 }
-
 
 #logo {
   text-decoration: none;
@@ -185,7 +230,6 @@ header {
   font-size: 36px;
   font-weight: 700;
   color: white;
-
 }
 
 // icon connexion
@@ -222,15 +266,15 @@ hr {
 .navbar {
   grid-area: 3 / 1 / 4 / 4;
   width: 100%;
- }
+}
 
 nav {
   width: 50%;
-margin: auto;
+  margin: auto;
   height: auto;
 }
-#menu-burger{
-display: none;
+#menu-burger {
+  display: none;
 }
 ul.nav-links {
   list-style: none;
@@ -241,8 +285,6 @@ ul.nav-links {
   align-items: center;
   color: white;
 }
-
-
 
 a {
   text-decoration: none;
@@ -268,88 +310,84 @@ ul.nav-links a:hover {
   text-decoration: none;
 }
 
- @media screen and( max-width: 866px ){
- div.search{
-   display: none;
- }
+@media screen and( max-width: 866px ) {
+  div.search {
+    display: none;
+  }
 
+  //navbar
 
+  div.navbar {
+    display: none;
+  }
 
+  #menu-burger {
+    display: inherit;
+  }
+  .bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    left: 36px;
+    top: 36px;
+    cursor: pointer;
+  }
+  .bm-burger-bars {
+    background-color: rgb(200, 156, 98);
+  }
+  .line-style {
+    position: absolute;
+    height: 20%;
+    left: 0;
+    right: 0;
+  }
 
- //navbar
+  //button fermer
+  .cross-style {
+    position: absolute;
+    top: 12px;
+    right: 2px;
+    cursor: pointer;
+  }
+  .bm-cross {
+    background: rgb(200, 156, 98);
+  }
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
 
+  //
+  .bm-menu {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: black; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /*0.5 second transition effect to slide in the sidenav*/
+  }
 
-div.navbar{
-  display: none;
+  .bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  nav.bm-item-list {
+    color: #b8b7ad;
+    margin-left: 10%;
+    font-size: 25px;
+  }
+  // .bm-item-list > * {
+  //   display: flex;
+  //   text-decoration: none;
+  //   padding: 0.7em;
+  // }
+  // .bm-item-list > * > span {
+  //   margin-left: 10px;
+  //   font-weight: 700;
+  //   color: white;
+  // }
 }
-
-#menu-burger{
-  display: inherit;
-}
-.bm-burger-button {
-      position: fixed;
-      width: 36px;
-      height: 30px;
-      left: 36px;
-      top: 36px;
-      cursor: pointer;
-    }
-    .bm-burger-bars {
-      background-color:rgb(200, 156, 98);
-    }
-    .line-style {
-      position: absolute;
-      height: 20%;
-      left: 0;
-      right: 0;
-    }
-
-    //button fermer
-    .cross-style {
-      position: absolute;
-      top: 12px;
-      right: 2px;
-      cursor: pointer;
-    }
-    .bm-cross {
-      background: rgb(200, 156, 98);
-    }
-    .bm-cross-button {
-      height: 24px;
-      width: 24px;
-    }
-
-    //
-    .bm-menu {
-      height: 100%; /* 100% Full-height */
-      width: 0; /* 0 width - change this with JavaScript */
-      position: fixed; /* Stay in place */
-      z-index: 100; /* Stay on top */
-      top: 0;
-      left: 0;
-      background-color: black; /* Black*/
-      overflow-x: hidden; /* Disable horizontal scroll */
-      padding-top: 60px; /* Place content 60px from the top */
-      transition: 0.5s; /*0.5 second transition effect to slide in the sidenav*/
-    }
- 
-    .bm-overlay {
-      background: rgba(0, 0, 0, 0.3);
-    }
-    nav.bm-item-list {
-      color: #b8b7ad;
-      margin-left: 10%;
-      font-size: 25px;
-    }
-    // .bm-item-list > * {
-    //   display: flex;
-    //   text-decoration: none;
-    //   padding: 0.7em;
-    // }
-    // .bm-item-list > * > span {
-    //   margin-left: 10px;
-    //   font-weight: 700;
-    //   color: white;
-    // }
- }
 </style>

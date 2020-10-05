@@ -2,13 +2,17 @@
   <div id="boutique-bg">
     <section class="boutique boutique-menu">
       <section class="sous-menu">
-              <article class="menu"><a href="/cone"><figure  class="menu"> <img  class="img-menu"  src="../assets/img/cone.jpeg" alt=""><figcaption class="menu">Henné</figcaption></figure></a></article>
-              <article class="menu"><a href="/objets"><figure class="menu"><img class="img-menu"  src="../assets/img/cadre.jpg" alt=""><figcaption class="menu">Objets personnalisé</figcaption></figure></a></article>
-              <article class="menu"><a href="/lettre"><figure class="menu"><img  class="img-menu" src="../assets/img/cadre.jpg" alt=""><figcaption class="menu">Lettre fleurie</figcaption></figure></a></article>
-              <article class="menu"><a href="/bouquet"><figure class="menu"><img class="img-menu"  src="../assets/img/bouquet.jpg" alt=""><figcaption class="menu">Bouquet</figcaption></figure></a></article>
+              <article class="menu"><router-link to="/boutique/henne"><figure  class="menu"> <img  class="img-menu"  src="../assets/img/cone.jpeg" alt=""><figcaption class="menu">Henné</figcaption></figure></router-link></article>
+              <article class="menu"><router-link to="/boutique/objets"><figure class="menu"><img class="img-menu"  src="../assets/img/cadre.jpg" alt=""><figcaption class="menu">Objets personnalisé</figcaption></figure></router-link></article>
+              <article class="menu"><router-link to="/boutique/lettre"><figure class="menu"><img  class="img-menu" src="../assets/img/cadre.jpg" alt=""><figcaption class="menu">Lettre fleurie</figcaption></figure></router-link></article>
+              <article class="menu"><router-link to="/boutique/bouquet"><figure class="menu"><img class="img-menu"  src="../assets/img/bouquet.jpg" alt=""><figcaption class="menu">Bouquet</figcaption></figure></router-link></article>
          </section>
-    
-  
+    <router-link to="/cone">BLALBLZLFAEZ</router-link>
+
+    <router-view >
+         
+    </router-view>
+          
 
 
     </section>
@@ -25,8 +29,24 @@
 <script>
 
 export default {
+
+     data(){
+          return {
+               produits: []
+          }
+     },
   components : {
- 
+       
+  },
+  async created(){
+     //   console.log(this.$store)
+     //   console.log(this.$store.dispatch("produit/exemple"))
+     await this.$store.dispatch("produit/getProduits");
+     const produits = this.$store.getters["produit/produits"];
+     this.produits = produits;//this= data
+     console.log("GETTERS -> ", produits)
+     // console.log()
+
   }
 }
 </script>

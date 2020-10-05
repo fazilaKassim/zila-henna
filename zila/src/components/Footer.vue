@@ -6,23 +6,33 @@
       </article>
       <article class="footer footer-info">
         <h2 class="footer-titre">INFORMATION</h2>
-        
-        <router-link to="/condition">Condition d'utilisation</router-link>
-       <router-link to="/mentionlegal">Mention légales</router-link>
-        <a href="https://zilahenneabout.wordpress.com/nos-produits/">Nos produits</a>
-        <router-link to="https://zilahenneabout.wordpress.com/about/">L'histoire du henné</router-link>
+
+        <router-link to="/condition">Condition général de vente</router-link>
+        <router-link to="/mentionlegal">Mention légales</router-link>
+        <a href="https://zilahenneabout.wordpress.com/nos-produits/"
+          >Nos produits</a
+        >
+        <router-link to="https://zilahenneabout.wordpress.com/about/"
+          >L'histoire du henné</router-link
+        >
       </article>
       <article class="footer footer-menu">
-        <h2 class="footer-titre">PLAN DU SITE </h2>
+        <h2 class="footer-titre">PLAN DU SITE</h2>
         <router-link to="#">Boutique</router-link>
         <router-link to="#">Galerie</router-link>
         <router-link to="#">Tarifs</router-link>
         <router-link to="#">Rendez-vous</router-link>
       </article>
       <article class="footer footer-rs">
-          <a href="https://www.instagram.com/zilahenne/" target="_blank"><img src="../assets/img/insta.png" alt="" class="rs-logo" /></a>
-          <a  href="https://www.facebook.com/ZilaHenne/" target="_blank"><img src="../assets/img/fb.png" alt="" class="rs-logo" /></a>
-           <a  href="https://www.facebook.com/ZilaHenne/" target="_blank">  <img src="../assets/img/snap.png" alt="" class="rs-logo" /></a>
+        <a href="https://www.instagram.com/zilahenne/" target="_blank"
+          ><img src="../assets/img/insta.png" alt="" class="rs-logo"
+        /></a>
+        <a href="https://www.facebook.com/ZilaHenne/" target="_blank"
+          ><img src="../assets/img/fb.png" alt="" class="rs-logo"
+        /></a>
+        <a href="https://www.facebook.com/ZilaHenne/" target="_blank">
+          <img src="../assets/img/snap.png" alt="" class="rs-logo"
+        /></a>
       </article>
     </section>
   </footer>
@@ -34,35 +44,29 @@ export default {};
 
 <style>
 footer {
-
   width: 100%;
   height: auto;
- 
 }
 #footer {
   width: 100%;
-  height:300px;
+  height: 180px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
   grid-column-gap: 50px;
   grid-row-gap: 0px;
-   
 }
-h2{
-    color:rgb(200, 156, 98) ;
-    font-size: 18px;
-     font-family: "Bellota", cursive;
+h2 {
+  color: rgb(200, 156, 98);
+  font-size: 18px;
+  font-family: "Bellota", cursive;
   margin: 15px;
-     
-
 }
 
 /* logo */
 article.footer-logo {
   grid-area: 1 / 1 / 2 / 2;
 }
-
 
 .footer-logo {
   width: 150px;
@@ -84,7 +88,6 @@ article.footer-menu {
   grid-area: 1 / 3 / 2 / 4;
 }
 
-
 /* section reseau sociaux */
 article.footer-rs {
   grid-area: 1 / 4 / 2 / 5;
@@ -93,11 +96,11 @@ article.footer-rs {
   justify-content: center;
   align-items: center;
 }
-article.footer a{
+article.footer a {
   color: white;
 }
-.rs-logo{
-  width:60px;
- margin:10px;
-};
+.rs-logo {
+  width: 60px;
+  margin: 10px;
+}
 </style>

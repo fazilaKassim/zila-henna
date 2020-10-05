@@ -32,11 +32,12 @@ router.post('/inscription', async (req, res, next) => {
   }
   
 });
-router.get("/get-user-by-token", (req, res) => {
-  try {
-    console.log("HEADER AUTHENCICATE",req.header("x-authenticate"))
-    const user = auth.decodeToken(req.header("x-authenticate"));
 
+router.get("/get-user-by-token", (req, res) => {
+  // console.log("helooooooo");
+  try {
+    // console.log("HEADER AUTHENCICATE",req.header("x-authenticate"))
+    const user = auth.decodeToken(req.header("x-authenticate"));
     const userId = user.infos._id;
     // console.log("should be user", user);
     res.redirect("/users/" + userId);
@@ -44,6 +45,7 @@ router.get("/get-user-by-token", (req, res) => {
     res.status(500).json(err.message);
   }
 });
+
 router.post("/connexion", async (req, res, next) => {
   const userInfos = req.body; //
   // check que mail et mdp sont renseignés
@@ -56,7 +58,6 @@ router.post("/connexion", async (req, res, next) => {
     });
   }
 
-  console.log(userInfos)
   // si oui : vérifier que mail et mdp correspondent en bdd
   // 1 - récupérer l'utilisateur avec le mail fourni
   UserModel
@@ -70,8 +71,6 @@ router.post("/connexion", async (req, res, next) => {
           level: "error",
         });
       }
-
-      console.log(user)
       // si oui comparer le mdp crypté stocké en bdd avec la chaîne en clair envoyée depuis le formulaire
       const checkPassword = bcrypt.compareSync(
         userInfos.password, // password provenant du form "texte plein"
@@ -90,8 +89,7 @@ router.post("/connexion", async (req, res, next) => {
       // si oui : stocker les infos de l'user en session pour lui permettre de naviguer jusqu'au signout
       const { _doc: clone } = { ...user }; // je clone l'user
       delete clone.password; // par sécurité, je supprime le mdp du clone (pas besoin de le stocker ailleurs qu'en bdd)
-      req.session.currentUser = clone; // j'inscris le clone dans la session (pour maintenir un état de connexion)
-
+    
       const token = auth.createToken(user, req.ip); // createToken retourne un jeton (token) créé avec JWT
 
       return res
@@ -101,8 +99,6 @@ router.post("/connexion", async (req, res, next) => {
     })
     .catch(next);
 });
-
-
 
 
 router.patch("/:id", async (req, res, next) => {

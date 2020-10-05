@@ -7,12 +7,7 @@ const ProduitSchema = Schema({
   Prix: String,
   Ref: String,
   Description: String,
-  Categorie: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "categorie",
-    },
-  ],
+  Categorie: String,
   Stock: Number,
   Avis: [
     {

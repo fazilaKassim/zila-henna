@@ -1,45 +1,14 @@
 <template>
   <div id="boutique-bg">
+     
     <section class="boutique boutique-menu">
-      <!-- <section class="sous-menu">
-        <article class="menu">
-          <a href="/cone"
-            ><figure class="menu">
-              <img class="img-menu" src="../assets/img/cone.jpeg" alt="" />
-              <figcaption class="menu">Henné</figcaption>
-            </figure></a
-          >
-        </article>
-        <article class="menu">
-          <a href="/objets"
-            ><figure class="menu">
-              <img class="img-menu" src="../assets/img/cadre.jpg" alt="" />
-              <figcaption class="menu">Objets personnalisé</figcaption>
-            </figure></a
-          >
-        </article>
-        <article class="menu">
-          <a href="/lettre"
-            ><figure class="menu">
-              <img class="img-menu" src="../assets/img/cadre.jpg" alt="" />
-              <figcaption class="menu">Lettre fleurie</figcaption>
-            </figure></a
-          >
-        </article>
-        <article class="menu">
-          <a href="/bouquet"
-            ><figure class="menu">
-              <img class="img-menu" src="../assets/img/bouquet.jpg" alt="" />
-              <figcaption class="menu">Bouquet</figcaption>
-            </figure></a
-          >
-        </article>
-      </section> -->
+      
     </section>
     <section class="boutique-content boutique">
-      <h1>Cone</h1>
+      <h1>{{this.$route.params.categorie}}</h1>
+      <!-- <h1 v-bind="titre">{{titre}}</h1> -->
       <article class="list-produit">
-        <li v-for="i in produit" :key="i.id">{{ i.nom }}</li>
+        <li v-for="(produit, i) in produits" :key="i.id">{{ i.nom }}</li>
         <div class="produit">
           <figure class="produit">
             <img src="../assets/img/cadre.jpg" alt="" class="img-produit" />
@@ -60,11 +29,44 @@
 
 <script>
 export default {
-  computed: {
-    cone() {
-      return this.$store.state.produit.filter((produit) => categorie.cone);
+    props : ["categoriess"],
+    data(){
+        return {
+            titre : this.$route.params.categorie,
+            produits : [],
+            categorie : ""
+        }
     },
-  },
+
+    update(){
+        this.produits = this.getProducts(); 
+
+    },
+
+
+    created(){
+        
+        this.produits = this.getProducts(); 
+    },
+
+    methods : {
+        getProducts(){
+        
+            // console.log("PROPSSSSSS >>>>>>>>>>>>>>>>>><", categorie1);
+            const produits = this.$store.getters['produit/produits']
+            let categorie = this.$route.params.categorie;
+            const produitsFiltered = produits.filter(produit => produit.Categorie === categorie);
+            console.log("Produits FILTRñ >>>>>> ", produitsFiltered);
+            return produitsFiltered
+        }
+    }
+//   computed: {
+//     cone() {
+//       return this.$store.state.produit.filter((produit) => categorie.cone);
+//     },
+
+    
+//   },
 };
 </script>
 

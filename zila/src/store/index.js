@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import user from "./user";
-// import product from "./product";
+import produit from "./produit";
 
 // READ THE DOC !!!
 // https://vuex.vuejs.org/fr/api/
@@ -11,7 +11,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   modules: {
-    // product,
+    produit,
     user
   }
 });

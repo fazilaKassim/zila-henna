@@ -1,7 +1,7 @@
 <template>
   <div id="condition-bg">
     <section id="condition">
-      <h1>Condition d'utilisation</h1>
+      <h1>Condition général de vente</h1>
      
     </section>
   </div>

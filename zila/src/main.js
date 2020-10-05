@@ -3,9 +3,11 @@ import App from "./App.vue";
 import router from "./router";
 import VueAgile from 'vue-agile'
 import store from "./store";
+import VueGallery from 'vue-gallery'
 // import "./axios.config";
 
 Vue.use(VueAgile)
+Vue.use(VueGallery)
 Vue.prototype.$ebus = new Vue();
 
 // event bus ($ebus) : https://www.digitalocean.com/community/tutorials/vuejs-global-event-bus

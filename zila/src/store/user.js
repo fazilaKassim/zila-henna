@@ -69,14 +69,9 @@ export default {
       // });
     },
     getUserByToken(context) {
-      const token = auth.getLocalAuthToken();
-      const instance = axios.create({
-        emple_authenticate : token
-      })
-      
       axios
         .get(process.env.VUE_APP_BACKEND_URL + "/users/get-user-by-token", {
-          withCredentials: true
+          withCredentials: false
           // ci dessus: TRES IMPORTANT : sans l'option withCredentials, le token (JWT)
           // n'est pas envoyé avec la requête et le serveur ne saura pas que l'user est déjà connecté
         })
