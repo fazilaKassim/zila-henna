@@ -65,6 +65,7 @@
               <li><router-link to="/galerie">Galerie</router-link></li>
               <li><router-link to="/tarifs">Tarifs</router-link></li>
               <li><router-link to="/rendezVous">Rendez-vous</router-link></li>
+              <li><router-link to="/test/hehe">Test</router-link></li>
             </ul>
           </nav>
         </div>

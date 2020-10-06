@@ -33,18 +33,18 @@ const routes = [
     component: Boutique,
     children: [
       {
-        props: true,
+        // props: route => ({lolo : route.params.categoriess}),
         path: ":categoriess",
         name: "ProduitsParCategories",
         component: ProduitsParCategories,
       },
     ]
   },
-
   {
     path: "/galerie",
     name: "Galerie",
     component: Galerie,
+    props : true
   },
 
   {

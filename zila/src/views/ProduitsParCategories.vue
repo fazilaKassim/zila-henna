@@ -5,15 +5,16 @@
       
     </section>
     <section class="boutique-content boutique">
-      <h1>{{this.$route.params.categorie}}</h1>
+      <h1>Produits de la catégorie : {{listeProduits.categorie}}</h1>
       <!-- <h1 v-bind="titre">{{titre}}</h1> -->
       <article class="list-produit">
-        <li v-for="(produit, i) in produits" :key="i.id">{{ i.nom }}</li>
-        <div class="produit">
+        
+        <div v-for="(produit, i) in listeProduits.produits" :key="i" class="produit">
+        <li >{{ produit.Nom }}</li>
           <figure class="produit">
             <img src="../assets/img/cadre.jpg" alt="" class="img-produit" />
             <figcaption>lot de 3 cones</figcaption>
-            <p>10€</p>
+            <p>{{ produit.Prix }} €</p>
             <button class="btn">
               Acheter <i class="fas fa-cart-plus"></i>
             </button>
@@ -29,24 +30,20 @@
 
 <script>
 export default {
-    props : ["categoriess"],
+    props : ["produitsParCateg"],
     data(){
         return {
-            titre : this.$route.params.categorie,
-            produits : [],
-            categorie : ""
+            // categories :this.produitsParCateg.categorie,
+            // produitss :this.produitsParCateg.produits,
+            // lala : Vue.util.extend({}, this.initialCounter)
         }
     },
 
-    update(){
-        this.produits = this.getProducts(); 
-
-    },
 
 
     created(){
-        
-        this.produits = this.getProducts(); 
+        // this.categorie = this.produitsParCateg.categorie
+        // this.produits = this.produitsParCateg.produits
     },
 
     methods : {
@@ -59,6 +56,11 @@ export default {
             console.log("Produits FILTRñ >>>>>> ", produitsFiltered);
             return produitsFiltered
         }
+    },
+    computed: {
+    listeProduits() {
+        return {...this.produitsParCateg}
+  }
     }
 //   computed: {
 //     cone() {

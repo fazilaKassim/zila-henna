@@ -2,14 +2,14 @@
   <div id="boutique-bg">
     <section class="boutique boutique-menu">
       <section class="sous-menu">
-              <article class="menu"><router-link to="/boutique/henne"><figure  class="menu"> <img  class="img-menu"  src="../assets/img/cone.jpeg" alt=""><figcaption class="menu">Henné</figcaption></figure></router-link></article>
-              <article class="menu"><router-link to="/boutique/objets"><figure class="menu"><img class="img-menu"  src="../assets/img/cadre.jpg" alt=""><figcaption class="menu">Objets personnalisé</figcaption></figure></router-link></article>
-              <article class="menu"><router-link to="/boutique/lettre"><figure class="menu"><img  class="img-menu" src="../assets/img/cadre.jpg" alt=""><figcaption class="menu">Lettre fleurie</figcaption></figure></router-link></article>
-              <article class="menu"><router-link to="/boutique/bouquet"><figure class="menu"><img class="img-menu"  src="../assets/img/bouquet.jpg" alt=""><figcaption class="menu">Bouquet</figcaption></figure></router-link></article>
+              <article v-bind="produitsParCateg" @click="selectCategorie('henne')" class="menu"><router-link to="/boutique/henne"><figure  class="menu"> <img  class="img-menu"  src="../assets/img/cone.jpeg" alt=""><figcaption class="menu">Henné</figcaption></figure></router-link></article>
+              <article v-bind="produitsParCateg" @click="selectCategorie('objets')" class="menu"><router-link to="/boutique/objets"><figure class="menu"><img class="img-menu"  src="../assets/img/cadre.jpg" alt=""><figcaption class="menu">Objets personnalisé</figcaption></figure></router-link></article>
+              <article v-bind="produitsParCateg" @click="selectCategorie('lettre')" class="menu"><router-link to="/boutique/lettre"><figure class="menu"><img  class="img-menu" src="../assets/img/cadre.jpg" alt=""><figcaption class="menu">Lettre fleurie</figcaption></figure></router-link></article>
+              <article v-bind="produitsParCateg" @click="selectCategorie('bouquet')" class="menu"><router-link to="/boutique/bouquet"><figure class="menu"><img class="img-menu"  src="../assets/img/bouquet.jpg" alt=""><figcaption class="menu">Bouquet</figcaption></figure></router-link></article>
          </section>
-    <router-link to="/cone">BLALBLZLFAEZ</router-link>
+    <!-- <router-link to="/cone">BLALBLZLFAEZ</router-link> -->
 
-    <router-view >
+    <router-view :produitsParCateg='produitsParCateg'>
          
     </router-view>
           
@@ -29,24 +29,33 @@
 <script>
 
 export default {
-
      data(){
           return {
-               produits: []
+               produits: [],
+               produitsParCateg : {
+                   categorie : "",
+                   produits : []
+               },
           }
      },
   components : {
        
   },
   async created(){
-     //   console.log(this.$store)
-     //   console.log(this.$store.dispatch("produit/exemple"))
-     await this.$store.dispatch("produit/getProduits");
-     const produits = this.$store.getters["produit/produits"];
-     this.produits = produits;//this= data
-     console.log("GETTERS -> ", produits)
-     // console.log()
+    await this.$store.dispatch("produit/getProduits");
+    const produits = this.$store.getters["produit/produits"];
+    this.produits = produits;
+    this.selectCategorie("henne");
 
+  },
+
+  methods : {
+      selectCategorie(categ){
+          this.produitsParCateg = {
+              categorie : categ,
+              produits : this.produits.filter(produit => produit.Categorie === categ)
+          }
+      }
   }
 }
 </script>
